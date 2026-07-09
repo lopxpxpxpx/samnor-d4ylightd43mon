@@ -6,6 +6,7 @@
 <title>chromium_cmd</title>
 
 <style>
+    
 *{
     margin:0;
     padding:0;
@@ -13,91 +14,133 @@
 }
 
 body{
-    background-color: "black";
+    background-color: #000;
+    margin:0;
+    height:100%;
+    overflow:hidden;
     display:flex;
-    justify-content:center;
-    align-items:center;
+    justify-content:left;
+    align-items:top;
     height:100vh;
     font-family:Consolas,"Courier New",monospace;
 }
 
-.window{
-    width:1000px;
-    height:600px;
-    background:#000;
-    border:1px solid #777;
-    box-shadow:0 0 40px rgba(0,0,0,.7);
-}
-
-.titlebar{
-    height:32px;
-    background:#f0f0f0;
-    color:"black";
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 10px;
-    font-family:Segoe UI,sans-serif;
-    font-size:13px;
-}
-
-.buttons{
-    display:flex;
-    gap:12px;
-    font-size:14px;
-}
-
 .cmd{
     color:rgb(0,255,0);
-    padding:12px;
+    padding:10px;
     font-size:18px;
-    line-height:1.45;
     overflow-y:auto;
     height:calc(100% - 32px);
-    white-space:pre-wrap;
+    position:absolute
+}
+
+.art{
+    flex: 1 1 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0.2;
+    font-size:min(3vw, 9px);
+    color:rgb(0,255,0);
+    left:0;
+
 }
 
 .cursor{
     display:inline-block;
-    height:0.8em;
-    border-right:0.4em solid rgb(0,255,0);
-    vertical-align:center;
-    animation:blink 1s linear infinite;
+    height: 0.2em;
+    border-right: 0.6em solid rgb(0,255,0);
+    vertical-align:-0.1em;
+    animation:blink 1s step-end alternate infinite;
 }
 
 @keyframes blink{
-    50%{
-        opacity:0;
-    };
-    100% {opacity:1;}
+    50%{opacity: 0;}
 }
 
-.line{
-    margin-bottom:2px;
-}
 </style>
 </head>
 <body>
 
-<div class="window">
-
-    <div class="titlebar">
-        <span>userconnect:SMNRT/Codename_d4ylightd43mon</span>
-
-        <div class="buttons">
-            <span>─</span>
-            <span>□</span>
-            <span>✕</span>
-        </div>
-    </div>
-
-   <div class="cmd" id="terminal">
-    <p class="line"><span> Microsoft Windows [versão 10.0.22621.1555] </br> (c) Microsoft Corporation. Todos os direitos reservados.</p>
+<div class="cmd" id="terminal">
+      <p class="line">Microsoft Windows [versão 10.0.26200.8655]</br>(c) Microsoft Corporation. Todos os direitos reservados.</p>
       </br>
 </div>
+<div class="art"><pre>                                                                                                                                                                          
 
-</div>
-
+                                  z                                                                                                    z                                  
+                                  zS                                                                                                  zz                                  
+                                  zASz                                                                                              zRAz                                  
+                                   SASz                                                                                            zSAS                                   
+                                   zAASz                                                                                          zSAAz                                   
+                                   zSAARz                                                                                        zRAAAz                                   
+                                    zAAAS                                                                                        SAAAA                                    
+                                    zAAAAS                                                                                      SAAAAS                                    
+                                    zAAAAAz                                                                                    zAAAAAz                                    
+                                     SAAAASz                                                                                  zSAAAAS                                     
+                                     zAAAAAS                                   zzzzzzzzzzzz                                   zAAAAAz                                     
+                                 z   zAAAAAAS                            zzzzzzzzzzzzzzzzzzzzzzzz                            zSAAAA z   z                                 
+                                 zz  z SAAAAAz                        zzzzzzS                Rzzzzzz                        zAAAAAA z  zz                                 
+                                  zSz  zAAAAASz                    zzzzzz     zzzzzzzzzzzzzzT    zzzzzz                    zSAAAAAA  zSz                                  
+                                  zASz zSAAAAASz                  zzzz   zzzzzzzzzzz  zzzzzzzzzzz   zzzz                  zSAAAAASR SSAz                                  
+                          zz      zAASz SAAAAAASz               zSAS  zzzzz                    zzzzz  SASz               zSAAAAAAS SAAAz      zz                          
+                          zzz      SAASRTAAAAAAAS              zSAA zzSA         zzzzzzzz         ASzzTAASz              SAAAAAAASSSAAS      zSz                          
+                           zSz     zAAAAA AAAAAAAS           zSAA AAAAASzz   zzzzSAAAAAASzzzz   zzSAAAAA AASz           zAAAAAASRRAAAAz     zSA                           
+                           zASz    zSAAAA SSAAAAAAz          zAAAAAAASzz  zzzSAAAAAAAAAAAAAASzzz  zzSAAAAAAAS          zSAAAAASz SAAAAz    zSAS                           
+                           zAAAS    zAAAAS SAAAAAASz        zSAAAASzzz  zzSAAASzzzzzzzzzzzzSAAASzz  zzzSAAAAAz        zSAAAAAAR zSAAAA    zAAAz                           
+                           zSAAASz  zSAAASSRAAAAAAASz       zAAASz     zSAAASz              zSAAASz     zSAAAR       zSAAAAAAAQRSAAARz  zzSAAAz                           
+                            zAAAASz  zAAAAAAAAAAAAAAS     zzSAAS      zSAASz                  zSAASz      SAAASz     zAAAAAASSRAAAAAz  zSAAAAS                            
+                            zAAAAASz zSAAAAA AAAAAAAAS  zSAAAAAz      SAAAz         zz         zSAAS      zAAAAASz  zSAAAAAAS SAAAASz zSAAAAAz                            
+                            zAAAAAAS  zSAAAAA AAAAAAAAAAAAAAAAAz     zAAAS          SSz         zAAAz      AAAAAAAAAAAAAAAAA SSAAAAR  SAAAAAAz                            
+                            zAAAAAAASz SAAAAAA SSAAAAAAAAAAAAAAz     zSAAz        zSAASz        zAASz     zAAAAAAAAAAAAAAAA AAAAAAA SSAAAAAAAz                            
+                             SAAAAAAASS AAAAAAS RAAAAAAAAAAAAAAz      zAAz      zzSAAAASzz      zAAz      zAAAAAAAAAAAAAAA AAAAAAA AAAAAAAAAS                             
+                             zAAAAAAAAAAAAAAAASTSAAAAAAAAAAAAAA       zAAz   zzSAAAAAAAAAASzz   zAAz       AAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAz                             
+                             zSAAAA AAAA AAAAAAA AAAAAAAAAAAAAASzzzzzzRAASzzSAAAAAAAAAAAAAAAASzzSAASzzzzzzSAAAAAAAAAAAAAA AAAAAAA AAAA AAAAAz                             
+                              zAAAA AAAAA AAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAA AAAAA AAAAA                              
+                              zAAAA AAAAAA AAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAA AAAAAA AAAAS                              
+                              zAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS SAAAAAAAAAAAAAAAAAAAAAAAAz                              
+                              zSAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz zAAAAAAAAAAAAAAAAAAAAAAASz                              
+                               zAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz zAAAAAAAAAA AAAAAAAAAAAAz                               
+                               zAAAAAAAAAAAAAAAAAAAAAAAATSSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASz SAAAAAAAAAAAAAAAAAAAAAAAz                               
+                               zAAAAAAAAAAAAAAAAAAAAAAAAS SAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS RAAAAAAAAAAAAAAAAAAAAAAAAz                               
+                               zSAAAAAAAAAAAAAAAAAAAAAAASRSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSAAAAAAAAAAAAAAAAAAAAAAASz                               
+                                zAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz                                
+                                zSAAAAAAAAAAAAAAAAAS SAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS SAAAAAAAAAAAAAAAAARz                                
+                                 zSAAAAAAAAAAAAAAAAS  SAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASz SAAAAAAAAAAAAAAAASz                                 
+                                  zzSAAAAAAAAAAAAAASz zSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASz zSAAAAAAAAAAAAAAASz                                  
+                                    zzSAAAAAAAAAAAAAS  zSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASz  zAAAAAAAAAAAAASzz                                    
+                                      zzSAAAAAAAAAAAAz  zzSAR zSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASz RASzz  zSAAAAAAAAAAASzz                                      
+                                        zzSAAAAAAAAAASz   zzz  zzSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASzz  SSz   zSAAAAAAAAAASzz                                        
+                                          zSSAAAAAAAAASz    z     RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR     z    zSAAAAAAAAASSz                                          
+                                        zz  zSSAAAAAAAAASz         zSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS         zzSAAAAAAAASzz  zz                                        
+                                         zzS  zSSAAAAAAAASz         zzSAAAAAAAAAAAAAAAAAAAAAAAAAAAASzz         zSAAAAAAAASSz  zzz                                         
+                                          zSSSz SAAAAAAAAAASzz        zSAAAAAAAAAAAAAAAAAAAAAAAAAASz        zzSAAAAAAAAAAR zzzzz                                          
+                                           zzSSSS AAAAAAAAAAASzz        zzSAAAAAAAAAAAAAAAAAAAASzz        zzSAAAAAAAAAAA SSSASz                                           
+                                             zSAAAAAAAAAAAA SSSSzzz       zzSAAAAAAAAAAAAAAAASzz       zzzSSSS AAAAAAAAAAAASz                                             
+                                              zSAAAAAAAAAAAAS zzzSSzzzz     zzzSAAAAAAAAAASzzz     zzzzSSzzz SAAAAAAAAAAAASz                                              
+                                                SAAAAAAAAAAASS    zzzSSzzzz    RAAAAAAAAAAS    zzzzSSzzzz   zRAAAAAAAAAAASz                                               
+                                                 zSAAAAAAAAAAASz      zzzzSSzzzSAAAAAAAAAASzzzSSzzzz      zzSAAAAAAAAAASz                                                 
+                                                  zSAAAAAAAAAAAASzzz       zzzzzzzzzzzzzzzzzzzzz      zzzSAAAAAAAAAAAASz                                                  
+                                                   zSAAAAAAAAAAAAAASzzz                            zzzSAAAAAAAAAAAAAASz                                                   
+                                                    zzzSAAAAAAAAAAAAAAASzzz                    zzzSAAAAAAAAAAAAAAASzzz                                                    
+                                                        zzSAAAAAAAAAAAASzzzzzz              zzzzzzzSAAAAAAAAAAASzz                                                        
+                                                           zzzzzzzSAAAA    zzzzzzz      zzzzzzz    SAAASzzzzzzz                                                           
+                                                                    zzzzzz                      zzzzzz                                                                    
+                                                                            zzz   z    z   zzz                                                                            
+                                                                                 zzz  zzz                                                                                 
+                                                                                                                                                                          
+                                    zzzzzzz zzzzzzz  zzzzzzzz   zzzzzzz     zzzzzzz zzzzzzz    zz    zzzz   zzzzzzzzzzzzz  zz     zzzzz                                   
+                                  zzz    zSz zA  SSz  zz    zz zSz    SS    zAS  zz  zAR R    zASz    zA     zAR   zAz    zSSz   zS                                       
+                                  zAz    zAz zASSS    zz    SS SA     SSz   zAzzzz   zAzzz   zzzzzz   zA     zAz   zAz   zzSSSz   zzzzzz                                  
+                            zzzz   SSz   SA  zz  zzz  zz   zz  zzz   zzz    zzz zzz  zzz  z zz   zzz  zz  zz zzz   zzz  zz   ASz z   SSz  zzzz                            
+                                    zzzzzzSS                      zzz                                                         Azzzzzzzz                                   
+                                           zzzzzzzzzzzzz                                                           zzzzzzzzzzzz                                           
+                                                    zzzzzzzzzzzzzz                                      zzzzzzzzzzzzzz                                                    
+                                                            zzzzzzzSSzzzzzzzzzz            zzzzzzzzzzSSzzzzzzz                                                            
+                                                                     zzzzzzzSAASzzzzzzzzzzSAASzzzzzzz                                                                     
+                                                                             zzzzzzzSSzzzzzzz                                                                             
+                                                                                    zz                                                                                    
+</pre></div>
 <script>
 
 const falas = [
@@ -127,16 +170,45 @@ const falas = [
         0:0,
         13:30
     },
-    espera:1500,
+    espera:3000,
     apagar:false
 },
 {
-    texto:"Remote_USER:windows/user/d4ylightd43mon> tarde betinha",
+    texto:"Remote_USER:windows/user/d4ylightd43mon> Opa, tá me ouvindo?",
     velocidades:{
         0:0,
-        40:20
+        40:30
     },
-    espera:10000,
+    espera:4000,
+    apagar: false
+},
+{
+    texto:"Remote_USER:windows/user/d4ylightd43mon> Quero dizer, lendo",
+    velocidades:{
+        0:0,
+        40:25
+    },
+    espera:5000,
+    apagar: false
+},
+{
+    texto:"Remote_USER:windows/user/d4ylightd43mon> Enfim, o que importa é que um colega meu falou que tu já viu umas paradas estranhas, né?",
+    velocidades:{
+        0:0,
+        40:30
+    },
+    espera:5000,
+    apagar: false
+},
+{
+    texto:"Remote_USER:windows/user/d4ylightd43mon> Tipo, algumas paradas bem... &#34Paranormais&#34?",
+    velocidades:{
+        0:0,
+        40:30,
+        67:600,
+        70:60
+    },
+    espera:3000,
     apagar: false
 }
 ];
