@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chromium_cmd</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color: "black";
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Consolas,"Courier New",monospace;
+}
+
+.window{
+    width:1000px;
+    height:600px;
+    background:#000;
+    border:1px solid #777;
+    box-shadow:0 0 40px rgba(0,0,0,.7);
+}
+
+.titlebar{
+    height:32px;
+    background:#f0f0f0;
+    color:"black";
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 10px;
+    font-family:Segoe UI,sans-serif;
+    font-size:13px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    font-size:14px;
+}
+
+.cmd{
+    color:rgb(0,255,0);
+    padding:12px;
+    font-size:18px;
+    line-height:1.45;
+    overflow-y:auto;
+    height:calc(100% - 32px);
+    white-space:pre-wrap;
+}
+
+.cursor{
+    display:inline-block;
+    height:0.8em;
+    border-right:0.4em solid rgb(0,255,0);
+    vertical-align:center;
+    animation:blink 1s linear infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    };
+    100% {opacity:1;}
+}
+
+.line{
+    margin-bottom:2px;
+}
+</style>
+</head>
+<body>
+
+<div class="window">
+
+    <div class="titlebar">
+        <span>userconnect:SMNRT/Codename_d4ylightd43mon</span>
+
+        <div class="buttons">
+            <span>─</span>
+            <span>□</span>
+            <span>✕</span>
+        </div>
+    </div>
+
+   <div class="cmd" id="terminal">
+    <p class="line"><span> Microsoft Windows [versão 10.0.22621.1555] </br> (c) Microsoft Corporation. Todos os direitos reservados.</p>
+      </br>
+</div>
+
+</div>
+
+<script>
+
+const falas = [
+{
+    texto:"sistema> Inicializando...",
+    velocidades:{
+        0:0,
+        10:30,
+        22:1200
+    },
+    espera:2000,
+    apagar:false
+},
+{
+    texto:"sistema> Assegurando conexão...",
+    velocidades:{
+        0:0,
+        13:30,
+        28:1200
+    },
+    espera:1500,
+    apagar:true
+},
+{
+    texto:"sistema> Conexão estabelecida.",
+    velocidades:{
+        0:0,
+        13:30
+    },
+    espera:1500,
+    apagar:false
+},
+{
+    texto:"Remote_USER:windows/user/d4ylightd43mon> tarde betinha",
+    velocidades:{
+        0:0,
+        40:20
+    },
+    espera:10000,
+    apagar: false
+}
+];
+
+const terminal = document.getElementById("terminal");
+
+let linhaAtual = 0;
+let caractereAtual = 0;
+let velocidadeAtual = 45;
+let linha;
+
+function escrever(){
+
+    if(linhaAtual >= falas.length){
+        return;
+    }
+
+    const fala = falas[linhaAtual];
+
+    if(caractereAtual === 0){
+
+        linha = document.createElement("div");
+        linha.className = "line";
+        terminal.appendChild(linha);
+
+        velocidadeAtual = fala.velocidades[0] || 45;
+
+    }
+
+    if(fala.velocidades[caractereAtual] !== undefined){
+        velocidadeAtual = fala.velocidades[caractereAtual];
+    }
+
+    linha.innerHTML =
+        fala.texto.substring(0, caractereAtual) +
+        '<span class="cursor"></span>';
+
+    caractereAtual++;
+
+    terminal.scrollTop = terminal.scrollHeight;
+
+    if(caractereAtual <= fala.texto.length){
+
+        setTimeout(escrever, velocidadeAtual);
+
+    }else{
+
+        linha.innerHTML = fala.texto;
+
+        setTimeout(() => {
+
+            if(fala.apagar){
+                linha.remove();
+            }
+
+            linhaAtual++;
+            caractereAtual = 0;
+
+            escrever();
+
+        }, fala.espera);
+
+    }
+
+}
+
+escrever();
+
+</script>
+
+</body>
+</html>
